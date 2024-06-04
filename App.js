@@ -1,23 +1,7 @@
-/* 
-<div id ="parent">
-    <div id="child">
-        <h1>i'm h1 tag</h1>
-        <h2>i'm h2 tag</h2>
-    </div>
-    <div id="child2">
-        <h1>i'm h1 tag</h1>
-        <h2>i'm h2 tag</h2>
-    </div>
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-</div>
-
-
-ReactElement(oject) => HTML(browser understands)
-
-
-*/
-
-const heading = React.createElement(
+const parent = React.createElement(
   "div",
   { id: "parent" },
   [
@@ -32,8 +16,8 @@ const heading = React.createElement(
     
   ]
 );
+console.log(parent);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(heading);
-// this is the main reason we dont use this type of format instead of JSX.
+root.render(parent);
