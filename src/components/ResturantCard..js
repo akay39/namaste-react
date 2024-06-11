@@ -1,3 +1,4 @@
+
 import {CDN_URL} from "../utils/constants"
 
 const styleCard = {
@@ -17,7 +18,7 @@ const styleCard = {
           alt="res-logo"
         />
         <h3>{name}</h3>
-        <h4>{cuisines}</h4>
+        <h5 >{cuisines}</h5>
         <h4>{avgRating} stars </h4>
         <h4>{costForTwo}</h4>
         <h4>{deliveryTime} minutes</h4>
