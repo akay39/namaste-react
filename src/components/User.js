@@ -1,8 +1,20 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const User = ({name , location}) => {
     const [count, setCount] = useState(0);
     const [count2] = useState(0);
+
+    useEffect(()=>{
+        //API calls
+
+        return ()=> {
+            clearInterval();
+        }
+    },[]);
+
+    async function getUserInfo (){
+
+    }
 
     return(
         <div className="user-card">

@@ -6,42 +6,49 @@ class UserClass extends React.Component {
         super(props);
 
         this.state = {
-            count: 0,
-            //count2: 1,
-            //count3,
-            //count4,
-            //count5,
-            //count6,
+        userInfo: {
+            name: "dummy",
+            location: "ocation dummy",
+            avtar_url: "dummy-photo",
+        }
         };
 
-         console.log(this.props.name + " child constructor");
+    //     console.log(this.props.name + " child constructor");
     }
 
-    componentDidMount(){
-        console.log(this.props.name + " Child Component Did Mount")
+    async componentDidMount(){
+    //    console.log(this.props.name + " Child Component Did Mount")
 
+        const data = await fetch(" https://api.github.com/users/akay39");
+        const json = await data.json();
+
+        this.setState({
+            userInfo: json,
+        });
+
+        console.log(json);
+    }
+    componentDidUpdate(){
+        console.log("Component Did Update")
+    }
+    componentWillUnmount(){
+        // clean up
+        // unmount will be called when we go to the another page or stop showing the data.
+        // we need to unmount things because of single oage application and the code -
+        //-at the back is running continiously which make a alot of effiency loss.
     }
 
 
 
     render(){
-        const {name, location} = this.props;
-        const {count} = this.state;
-        console.log(this.props.name + " child render");
+        const {name, location} = this.state.userInfo;
+        // const {count} = this.state;
+     //   console.log(this.props.name + " child render");
 
         return(
         <div className="user-card-1">
-            <h1>Count :{count}</h1>
-            <button onClick={()=>{
-                //never update state variables directly.
-                this.setState({
-                    count: this.state.count + 1,
-                    //count2: this.state.count2 +1,
-                });
-
-            }}
-            >count increase</button>
-            {/* <h1>Count :{count2}</h1> */}
+          
+            
         <h2>Name: {name}</h2>
         <h3>Location:{location}</h3>
         <h4>Contact: @akay39</h4>
@@ -52,26 +59,15 @@ class UserClass extends React.Component {
     };
 };
 export default UserClass;
+// Constructor(dummy)
+//Render(dummy)
+//      <HTML> dummy data
+//Component Did Mount
+//      <API call> 
+//      <this.setState> -> state variable is uploaded
 
-//firstly the constructor is called after that render is called.
-//after that componentDidMounnt is called.
-
-
-
-//React lifecycle diagram.
-
-//  Parent constructor
-//Parent Render
-
-
-// Child First constructor
-//child second render
-
-// child scond constructor
-// child second render
-
-// child first componentDidMount
-//child second componentDidMount
-
-//Parent componentDidMount
-
+//-----UPDATE
+//
+//      render(API data)
+//      <HTML> (new API data)
+// componentDidUpdate

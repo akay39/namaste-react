@@ -8,25 +8,23 @@ class About extends Component{
         super(props);
 
 
-        console.log("Parent constructor");
+      //  console.log("Parent constructor");
 
     }
 
     componentDidMount(){
-        console.log("Parent Component Did Mount.")
+    //    console.log("Parent Component Did Mount.")
         //API call over here.
     }
 
     render()  {
-        console.log("Parent Render");
+      //  console.log("Parent Render");
         return(
             <div>
                 <h1>About</h1>
                 <h2>This is Namaste React web series.</h2>
-                {/* <User name={"Akshay sharma (function)"} location={"Aligarh (function)"}/> */}
-    
-                <UserClass name={"first"} location={"ALIGARH CLASS"}/>
-                <UserClass name={"second"} location={"US"}/>
+                 <UserClass name={"first"} location={"ALIGARH CLASS"}/>
+               
             </div>
         ); 
     };
