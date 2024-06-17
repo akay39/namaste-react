@@ -2,6 +2,7 @@ import ResturantCard from "./ResturantCard.";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfResturants, setListOfResturant] = useState([]);
@@ -31,6 +32,9 @@ const Body = () => {
   // Conditional rendering
   //if(listofresturant === 0){
   // return <shimmer/>}
+
+  const OnlineStatus = useOnlineStatus();
+  if(OnlineStatus === false)return <h1>looks like offline. check internet connection.</h1>
 
   return listOfResturants.length === 0 ? (
     <Shimmer />
