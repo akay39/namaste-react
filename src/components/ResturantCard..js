@@ -1,9 +1,7 @@
 
 import {CDN_URL} from "../utils/constants"
 
-const styleCard = {
-    backgroundColor: "#f0f0f0",
-  };
+
   
   const ResturantCard = (props) => {
     const {resData} = props;
@@ -11,16 +9,16 @@ const styleCard = {
     const{cloudinaryImageId, name, avgRating, costForTwo, cuisines, deliveryTime } = resData?.info;
     
     return (
-      <div className="res-card" style={styleCard}>
+      <div className="m-6 p-2 w-[250px] rounded-lg bg-gray-100 hover:bg-gray-300" >
         <img
-          className="res-logo"
+          className="rounded-md"
           src={ CDN_URL+ cloudinaryImageId}
           alt="res-logo"
         />
-        <h3>{name}</h3>
-        <h5 >{cuisines}</h5>
-        <h4>{avgRating} stars </h4>
-        <h4>{costForTwo}</h4>
+        <h3 className="font-bold py-2 text-lg">{name}</h3>
+        <h5 className="font-light text-sm" >{cuisines.join(", ")}</h5>
+        <h4 className="font-semibold">{avgRating} stars </h4>
+        <h4 className="font-extrabold">{costForTwo}</h4>
         <h4>{deliveryTime} minutes</h4>
             </div>
     );
