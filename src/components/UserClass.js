@@ -29,7 +29,7 @@ class UserClass extends React.Component {
         console.log(json);
     }
     componentDidUpdate(){
-        console.log("Component Did Update")
+       // console.log("Component Did Update")
     }
     componentWillUnmount(){
         // clean up

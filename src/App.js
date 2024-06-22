@@ -1,5 +1,5 @@
 
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -9,6 +9,7 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import ResturantMenu from "./components/ResturantMenu";
 import Shimmer from "./components/Shimmer";
+import UserContext from "./utils/UserContext";
 //import Grocery from "./components/Grocery";
 
 //chunking
@@ -22,11 +23,27 @@ const Grocery = lazy(()=>import("./components/Grocery"));
 const About = lazy(()=>import("./components/About"));
 
 const AppLayout = () => {
+
+  const [userName, setUserName] = useState();
+
+  //authentication
+  useEffect(()=>{
+//make api calls and send usrname and password
+const data = {
+  name: "Akshay Sharma",
+};
+setUserName(data.name);
+
+  },[]);
+
+
   return (
+    <UserContext.Provider value={{ loggedInUser: userName}} >
     <div className="app">
       <Header />
       <Outlet />
     </div>
+    </UserContext.Provider>
   );
 };
 
