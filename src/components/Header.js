@@ -17,7 +17,7 @@ const Header = () => {
    //Subscribing to the store using a useSelector hook.
 
    const cartItems = useSelector((store)=> store.cart.items);
-  console.log(cartItems);
+  //console.log(cartItems);
     return (
       <div className="flex justify-between shadow-lg bg-orange-200">
         <div className="logo-container">
